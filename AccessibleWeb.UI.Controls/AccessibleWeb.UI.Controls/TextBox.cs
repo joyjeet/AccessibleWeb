@@ -12,22 +12,22 @@ namespace AccessibleWeb.UI.Controls
     public class TextBox: System.Web.UI.WebControls.TextBox
     {
         [Bindable(false), DefaultValue(""), DescriptionAttribute("Accesibilty group label 'ID'.")]
-        public string AriaLabedBy
+        public string AriaLabelledBy
         {
             get
             {
-                object o = ViewState["AriaLabedBy"];
+                object o = ViewState["AriaLabelledBy"];
                 if (o == null) { return string.Empty; }
                 else { return (string)o; }
             }
-            set { ViewState["AriaLabedBy"] = value; }
+            set { ViewState["AriaLabelledBy"] = value; }
         }
 
         protected override void Render(HtmlTextWriter writer)
         {
-            if (!string.IsNullOrEmpty(AriaLabedBy))
+            if (!string.IsNullOrEmpty(AriaLabelledBy))
             {
-                this.Attributes.Add("aria-labelledby", AriaLabedBy);
+                this.Attributes.Add("aria-labelledby", AriaLabelledBy);
             }
             base.Render(writer);
         }
